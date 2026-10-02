@@ -1,5 +1,6 @@
 from petalRenderer import *
 import shutil
+import os
 from pathlib import Path
 from PIL import Image
 
@@ -22,6 +23,8 @@ def makeDocument(fileName):
 def song():
     songName = input("Choose a song from the songs folder (without txt): ")
     try:
+        if not os.path.exists('pictures'):
+            os.makedirs('pictures')
         print("Attempting to render font...")
         makeDocument("songs/" + songName + ".txt")
         print("Rendering font...")
